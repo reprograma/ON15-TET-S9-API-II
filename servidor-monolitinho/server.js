@@ -105,6 +105,7 @@ app.patch("/ghibli/updateTitulo/:id", (request, response) => {
         ghibliJson
     }])
 
+    
 })
 
 app.listen(3030, () => {
