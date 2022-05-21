@@ -14,9 +14,37 @@ const getAll = async (request, response) =>{
     response.status(200).send(filmesJson)
 }
 
-const getById = ()=>{}
+const getById = async (request, response)=>{
+    //conecta no banco de dados
+    let filmesJson = await dbConnect()
+
+    let idRequest = request.params.id //peguei o id enviado na request
+    let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
+
+    response.status(200).send(filmeEncontrado)
+}
+
+const createMovie = async(request, response)=>{
+    let filmesJson = await dbConnect()
+
+    let bodyRequest = request.body
+
+    let novoFilme = {
+        id: (filmesJson.length)+1, 
+        Title: bodyRequest.Title, 
+        Plot: bodyRequest.Plot 
+    }
+    filmesJson.push(novoFilme)
+    
+    response.status(201).send({
+        "mensagem": "filmes cadastrado com sucesso",
+        novoFilme
+    })
+}
 
 //exportando cada função par aser usada nas routers
 module.exports = {
-    getAll
+    getAll,
+    getById,
+    createMovie
 }

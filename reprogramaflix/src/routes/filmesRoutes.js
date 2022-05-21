@@ -11,5 +11,9 @@ const router = express.Router()
 //router.metodo http(rota, função)
 router.get("/catalogo", controller.getAll)
 
+router.get("/catalogo/:id", controller.getById)
+
+router.post("/cadastrar", controller.createMovie)
+
 //exportando pra ser usado no app.js
 module.exports = router
