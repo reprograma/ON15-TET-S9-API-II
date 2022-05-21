@@ -1,5 +1,6 @@
 const ghibliJson = require("./data/ghibli.json")
 
+
 const express = require("express")
 const cors = require("cors")
 
