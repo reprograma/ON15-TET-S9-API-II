@@ -29,6 +29,15 @@ const getByTitle = async (request, response) => {
 
 }
 
+const getByGenre = async (request, response) => {
+    let filmesJson = await dbConnect()
+    let generoRequest = request.query.Genre.toLowerCase()
+    let generoEncontrado = filmesJson.filter(filme => filme.Genre.toLowerCase().includes(generoRequest))
+
+    response.status(200).send(generoEncontrado)
+}
+
+
 const createMovie = async (request, response) => {
     let filmesJson = await dbConnect()
     let bodyRequest = request.body
@@ -63,10 +72,10 @@ const deleteByID = async (request, response) => {
     let filmesJson = await dbConnect()
 
     let idRequest = request.params.id
-    console.log(idRequest)
+
 
     let indexOfFilme = filmesJson.findIndex(item => item.id == idRequest)
-    console.log(indexOfFilme)
+
 
 
     let filmeRemovido = filmesJson.splice(indexOfFilme, 1)
@@ -113,12 +122,35 @@ const updateTitle = async (request, response) => {
         filmesJson
     }])
 }
+
+const updateItems = async (request, response) => {
+    let filmesJson = await dbConnect()
+    const idRequest = request.params.id
+    const bodyRequest = request.body
+
+    const filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
+    const itemEncontrado = Object.keys(bodyRequest)
+
+    itemEncontrado.forEach(key => {
+        filmeEncontrado[key] = bodyRequest[key]
+    })
+
+    response.status(200).json([{
+        "mensagem": "Filme atualizado com sucesso",
+        "Filme-atualizado": filmeEncontrado,
+        filmesJson
+    }])
+}
+
+
 module.exports = {
     getAll,
     getByID,
     getByTitle,
+    getByGenre,
     createMovie,
     deleteByID,
     updateAll,
-    updateTitle
+    updateTitle,
+    updateItems
 }

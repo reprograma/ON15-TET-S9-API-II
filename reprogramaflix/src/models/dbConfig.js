@@ -7,6 +7,9 @@ function bancoDeDados(dado) {
             }
             else if (dado == "filmes") {
                 return resolve(require("./filmes.json"))
+
+            }else if(dado == "assistir"){
+                return resolve(require("./mensagem.json"))
             }
             else {
                 return reject("Dado não encontrado")

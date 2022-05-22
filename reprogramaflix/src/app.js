@@ -7,9 +7,11 @@ app.use(cors())
 
 const filmesRoutes = require("./routes/filmesRoutes.js")
 const seriesRoutes = require("./routes/seriesRoutes.js")
+const entradaRoutes = require("./routes/entradaRoutes.js")
 
 app.use("/filmes", filmesRoutes)
 app.use("/series", seriesRoutes)
+app.use("/assistir", entradaRoutes)
 
 module.exports = app
 
