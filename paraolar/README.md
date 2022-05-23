@@ -115,32 +115,32 @@
 
     ```bash
     \--📂 paraolar
-           | 
-    	   |   server.js
-           |
-           |   package-lock.json
-    	   |   package.json
-           |   README.md
-           |
+            | 
+            |    server.js
+            |
+            |    package-lock.json
+            |    package.json
+            |    README.md
+            |
     		\--📂src
                     |
-    			    |   app.js
-    			    |
+                    |   app.js
+                    |
     			    📂---controller
                     |
-    			    |       entradaController.js
-    			    |       filmesController.js
-                    |       seriesController.js
+                    |   entradaController.js
+                    |   filmesController.js
+                    |   seriesController.js 
                     |
     			    📂---model
                     |
-                    |       dbConfig.js
-    			    |       mensagem.json
-                    |       filmes.json
-                    |       series.json
-    			    |
+                    |   dbConfig.js
+                    |   mensagem.json
+                    |   filmes.json
+                    |   series.json
+                    |
     			    📂---routes
-    			            entradaRoutes.js  			      
+                            entradaRoutes.js  			      
                             filmesRoutes.js  			          
                             seriesRoutes.js
                             
@@ -161,7 +161,7 @@
             "<b><a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/tree/BrunaCelestino/paraolar/src/models">models</a></b>" - pasta contendo o aquivo dbConfig.js, que simula o banco de dados, além dos arquivos: filmes.json, series.json e mensagem.json, que contém as informações sobre filmes, séries e a mensagem inicial; 
         </li>
         <li> 
-            "<b><a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/tree/BrunaCelestino/paraolar/src/routes">routes</a></b>" - pasta contendo os arquivos: <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/entradaRoutes.js">entradaRoutes.js</a>, <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/filmesRoutes.js">filmesRoutes.js</a> e <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/seriesRoutes.js">seriesRoutes.js</a>. Esses arquivos acrescentam o complemento à cada rota genérica, fazendo com que elas se tornem completas e possam ser acessadas. 
+            "<b><a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/tree/BrunaCelestino/paraolar/src/routes">routes</a></b>" - pasta contendo os arquivos: <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/entradaRoutes.js">entradaRoutes.js</a>, <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/filmesRoutes.js">filmesRoutes.js</a> e <a href = "https://github.com/BrunaCelestino/ON15-TET-S9-API-II/blob/BrunaCelestino/paraolar/src/routes/seriesRoutes.js">seriesRoutes.js</a>. Esses arquivos acrescentam o complemento à cada rota genérica, fazendo com que elas se tornem completas e possam ser acessadas; 
         </li>
         <li> 
             <b>Outros arquivos</b> - package-lock.json e package.json são arquivos relacionados a dependências e README.md, contendo a documentação do projeto.
