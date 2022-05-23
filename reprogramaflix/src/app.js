@@ -1,18 +1,35 @@
-const express = require("express")
-const cors = require("cors")
+// IMPORTAR EXPRESS
+const express = require("express");
 
-const app = express()
-app.use(express.json())
-app.use(cors())
+// IMPORTAR CORS
+const cors = require("cors");
 
-const filmesRoutes = require("./routes/filmesRoutes.js")
-const seriesRoutes = require("./routes/seriesRoutes.js")
-const entradaRoutes = require("./routes/entradaRoutes.js")
+const app = express();
 
-app.use("/filmes", filmesRoutes)
-app.use("/series", seriesRoutes)
-app.use("/assistir", entradaRoutes)
+// PERMITE QUE A API DECODIFIQUE OS REQUESTS
+app.use(express.json());
 
+app.use(cors());
+
+// IMPORTAR ROTAS DE FILMES
+const filmesRoutes = require("./routes/filmesRoutes.js");
+
+// IMPORTAR ROTAS DE SERIES
+const seriesRoutes = require("./routes/seriesRoutes.js");
+
+// IMPORTAR ROTAS DE ENTRADA
+const entradaRoutes = require("./routes/entradaRoutes.js");
+
+// DEFINIR INICIO DA ROTA FILME 
+app.use("/filmes", filmesRoutes);
+
+// DEFINIR INICIO DA ROTA SERIE
+app.use("/series", seriesRoutes);
+
+// DEFINIR INICIO DA ROTA ENTRADA
+app.use("/assistir", entradaRoutes);
+
+// EXPORTAR INICIO DAS ROTAS
 module.exports = app
 
 

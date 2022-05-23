@@ -1,25 +1,36 @@
-const controller = require("../controllers/seriesController")
+// IMPORTAR FUNÇÕES CONTROLE - SERIES
+const controller = require("../controllers/seriesController");
 
-const express = require("express")
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/catalogo", controller.getAll)
+// ROTA TODAS AS SERIES
+router.get("/catalogo", controller.getAll);
 
-router.get("/buscar/:id", controller.getByID)
+// ROTA BUSCAR SERIES POR ID
+router.get("/buscar/:id", controller.getByID);
 
-router.get("/filtro", controller.getByTitle)
+// ROTA BUSCAR SERIES POR TITULO
+router.get("/filtro", controller.getByTitle);
 
-router.get("/genero", controller.getByGenre)
+// ROTA BUSCAR SERIES POR GENERO
+router.get("/genero", controller.getByGenre);
 
-router.post("/cadastrar", controller.createSerie)
+// ROTA CADASTRAR NOVA SERIE
+router.post("/cadastrar", controller.createSerie);
 
-router.delete("/delete/:id", controller.deleteByID)
+// ROTA DELETAR SERIE POR ID
+router.delete("/delete/:id", controller.deleteByID);
 
-router.put("/substituir/:id", controller.updateAll)
+// ROTA SUBSTITUIR SERIE INTEIRA
+router.put("/substituir/:id", controller.updateAll);
 
-router.patch("/updateTitulo/:id", controller.updateTitle)
+// ROTA ATUALIZAR TITULO DA SERIE
+router.patch("/updateTitulo/:id", controller.updateTitle);
 
-router.patch("/updateItens/:id", controller.updateItems)
+// ROTA ATUALIZAR QUALQUER ITEM DA SERIE
+router.patch("/updateItens/:id", controller.updateItems);
 
+// EXPORTAR ROTAS
 module.exports = router

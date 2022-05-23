@@ -1,9 +1,11 @@
-const controller = require("../controllers/entradaController")
+// IMPORTAR FUNÇÕES CONTROLE - ENTRADA
+const controller = require("../controllers/entradaController");
 
-const express = require("express")
+const express = require("express");
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("", controller.getMessage)
+// ROTA MENSAGEM
+router.get("", controller.getMessage);
 
 module.exports = router
