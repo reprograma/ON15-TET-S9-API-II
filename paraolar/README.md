@@ -116,11 +116,11 @@
     ```bash
     \--📂 paraolar
            | 
-    	   |server.js
+    	  |server.js
            |
-           |package-lock.json
-    	   |package.json
-           |README.md
+          |package-lock.json
+    	  |package.json
+          |README.md
            |
     		\--📂src
                     |
