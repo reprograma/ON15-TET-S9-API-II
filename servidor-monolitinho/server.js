@@ -2,6 +2,7 @@ const ghibliJson = require("./data/ghibli.json")
 
 const express = require("express")
 const cors = require("cors")
+const { response } = require("express")
 
 const app = express()
 
@@ -56,6 +57,11 @@ app.post("/ghibli/cadastrar", (request,response)=>{
         "mensagem": "filmes cadastrado com sucesso",
         novoFilme
     })
+})
+app.delete("ghibli/deletar/:id", (request, response)=>{
+    const idRequest = request.params.id
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+    
 })
 
 
