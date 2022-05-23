@@ -114,7 +114,7 @@
 
 
     ```bash
-    \--📂 paraolar
+        \--📂 paraolar
             | 
             |    server.js
             |
@@ -122,24 +122,24 @@
             |    package.json
             |    README.md
             |
-    		\--📂src
+            \--📂src
                     |
                     |   app.js
                     |
-    			    📂---controller
+                    📂---controller
                     |
                     |   entradaController.js
                     |   filmesController.js
                     |   seriesController.js 
                     |
-    			    📂---model
+                    📂---model
                     |
                     |   dbConfig.js
                     |   mensagem.json
                     |   filmes.json
                     |   series.json
                     |
-    			    📂---routes
+                    📂---routes
                             entradaRoutes.js  			      
                             filmesRoutes.js  			          
                             seriesRoutes.js
