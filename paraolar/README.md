@@ -116,33 +116,33 @@
     ```bash
     \--📂 paraolar
            | 
-    	   |   server.js
+    	   |server.js
            |
-           |   package-lock.json
-    	   |   package.json
-           |   README.md
+           |package-lock.json
+    	   |package.json
+           |README.md
            |
     		\--📂src
                     |
-    			    |   app.js
+    			    |app.js
     			    |
     			    📂---controller
                     |
-    			    |       entradaController.js
-    			    |       filmesController.js
-                    |       seriesController.js
+    			    |entradaController.js
+    			    |filmesController.js
+                    |seriesController.js
                     |
     			    📂---model
                     |
-                    |       dbConfig.js
-    			    |       mensagem.json
-                    |       filmes.json
-                    |       series.json
+                    |dbConfig.js
+    			    |mensagem.json
+                    |filmes.json
+                    |series.json
     			    |
     			    📂---routes
-    			            entradaRoutes.js  			      
-                            filmesRoutes.js  			          
-                            seriesRoutes.js
+    			      entradaRoutes.js  			      
+                      filmesRoutes.js  			          
+                      seriesRoutes.js
                             
     ```
 
