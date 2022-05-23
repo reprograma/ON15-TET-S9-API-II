@@ -126,7 +126,7 @@
                     |
                     |   app.js
                     |
-                    📂---controller
+                    📂---controllers
                     |
                     |   entradaController.js
                     |   filmesController.js
