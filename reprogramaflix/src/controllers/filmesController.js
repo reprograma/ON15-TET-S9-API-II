@@ -15,7 +15,7 @@ const getAll = async (request, response) =>{
         let filmesJson = await dbConnect()
         response.status(200).send(filmesJson)
     } catch (error) {
-        response.status(500).json({message:error.message})
+        response.status(404).json({message:error.message})
     }  
 }
 
