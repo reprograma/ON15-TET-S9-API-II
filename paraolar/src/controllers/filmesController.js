@@ -1,5 +1,6 @@
 const dbConfig = require("../models/dbConfig")
 
+
 async function dbConnect(){
     return await dbConfig.bancoDeDados("filmes")
 }

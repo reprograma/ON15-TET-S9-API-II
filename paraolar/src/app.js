@@ -9,9 +9,7 @@ app.use(cors())
 
 const filmesRoutes = require("./routes/filmesRoutes")
 
-
 app.use("/filmes", filmesRoutes)
 
-
-
 module.exports = app
+
