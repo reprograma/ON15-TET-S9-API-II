@@ -3,7 +3,7 @@
 
 //chamei o express
 const express = require("express")
-const app = express() //executei
+const app = express() //executei o EXPRESS 
 
 app.use(express.json()) //uso o bodyparser
 
