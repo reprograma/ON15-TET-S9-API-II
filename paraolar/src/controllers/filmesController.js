@@ -68,7 +68,7 @@ const deleteById = async(request, response)=>{
     console.log(indice)
 
 
-    ghibliJson.splice(indice, 1)
+    filmesJson.splice(indice, 1)
 
     response.status(200).json([{
         "mensagem": "filme deletado com sucesso",
