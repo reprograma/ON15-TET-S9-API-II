@@ -1,6 +1,8 @@
-//logica da nossa API
+//aqui ficam todas as regras que construimos para serem chamadas pelas rotas
 
-//chamar a o banco
+//logica da nossa API
+//importanto nosso "banco de dados"
+// como dbConfig está fora do controllers, usa ..
 const dbConfig = require("../models/dbConfig")
 
 //executei a conexão do banco de dados

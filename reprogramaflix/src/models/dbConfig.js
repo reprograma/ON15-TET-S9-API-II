@@ -1,3 +1,7 @@
+//a models guarda a configuração do banco de dados
+//bem como informações e "modelos"
+//para a aula, simularemos um banco de dados "que demora"
+
 function bancoDeDados(dado){
     return new Promise((resolve, reject)=>{
         setTimeout(() => {
@@ -14,7 +18,7 @@ function bancoDeDados(dado){
         }, 2000);
     })
 }
-
+//exportando um função para outro arquivo
 module.exports ={
     bancoDeDados
 }
