@@ -4,7 +4,8 @@ const express = require("express")
 
 const router = express.Router()
 
-router.get("/catalogo", controller.getAll)
-
+router.get("/lista", controller.getAll)
+router.get("/lista/:id", controller.getById)
+router.post("/lista", controller.createMovie)
 
 module.exports = router
