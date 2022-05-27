@@ -1,52 +1,55 @@
 ## Documentação Reprogramaflix
 
-[GET] /filmes/catalogo
+[GET] /filmes/catalogo - ok
 - retorna todos os filmes
 
-[GET] /filmes/:id
+[GET] /filmes/:id - ok
 - retorna um filme pelo id
 
-[GET] /filmes?titulo:value
+[GET] /filmes?titulo:value - ok
 - retorna um filme pelo nome
 
-[POST]/filmes/criar
+[GET] /filmes?genero:value - ok
+- retorna um filme pelo genero
+
+[POST]/filmes/criar - ok
 - cria novo filmes
 
-[DELETE]/filmes/deletar/:id
+[DELETE]/filmes/deletar/:id - ok
 - deleta filme
 
-[PUT]/filmes/update/:id
+[PUT]/filmes/update/:id - ok
 - atualiza um filme por inteiro
 
-[PATCH]/filmes/updateTitle?id=value
+[PATCH]/filmes/updateTitle?id=value - ok
 - atualiza titulo
 
-[PATCH]/filmes/update/:id
+[PATCH]/filmes/update/:id - ok
 - atualiza o que vier no body
 
-[GET] /series/catalogo
+[GET] /series/catalogo - ok
 - retorna todos as series
 
-[GET] /series/:id
+[GET] /series/:id - ok
 - retorna uma serie pelo id
 
-[GET] /series?titulo:value
+[GET] /series?titulo:value - ok
 - retorna uma serie pelo nome
 
-[GET] /series?genero:value
+[GET] /series?genero:value - ok
 - retorna uma serie pelo genero
 
-[POST]/series/criar
+[POST]/series/criar - ok
 - cria nova serie
 
-[DELETE]/series/deletar/:id
+[DELETE]/series/deletar/:id - ok
 - deleta serie
 
-[PUT]/series/update/:id
+[PUT]/series/update/:id - ok
 - atualiza uma serie por inteiro
 
-[PATCH]/series/updateTitle?id=value
+[PATCH]/series/updateTitle?id=value - ok
 - atualiza titulo
 
-[PATCH]/series/update/:id
+[PATCH]/series/update/:id - ok
 - atualiza o que vier no body
