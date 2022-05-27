@@ -6,25 +6,23 @@ const cors = require("cors")
 const app = express()
 
 app.use(cors())
-app.use(express.json())//body parser
+app.use(express.json()) //body parser
 
 
-app.get("/", (request, response)=>{
-    response.status(200).json([
-        {
-            "mensagem":"API de filmes Ghibli"
-        }
-    ])
+app.get("/", (request, response) => {
+    response.status(200).json([{
+        "mensagem": "API de filmes Ghibli"
+    }])
 })
 
 
-app.get("/ghibli/filmes", (request, response)=>{
+app.get("/ghibli/filmes", (request, response) => {
     response.status(200).send(ghibliJson)
 })
 
 
 
-app.get("/ghibli/buscar/:id", (request, response)=>{
+app.get("/ghibli/buscar/:id", (request, response) => {
     let idRequest = request.params.id
     let filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
 
@@ -32,9 +30,9 @@ app.get("/ghibli/buscar/:id", (request, response)=>{
 
 })
 
-app.get("/ghibli/filtro", (request, response)=>{
+app.get("/ghibli/filtro", (request, response) => {
     //recebi o titulo enviado do query params
-                                            //pra facilitar coloquei tudo minusculo
+    //pra facilitar coloquei tudo minusculo
     let tituloRequest = request.query.titulo.toLowerCase()
 
     //filtro no ghibliJson 
@@ -46,47 +44,47 @@ app.get("/ghibli/filtro", (request, response)=>{
 })
 
 
-app.post("/ghibli/cadastrar", (request,response)=>{
+app.post("/ghibli/cadastrar", (request, response) => {
     let bodyRequest = request.body
 
     let novoFilme = {
-        id: (ghibliJson.length)+1, 
-        title: bodyRequest.title, 
-        description: bodyRequest.description 
+        id: (ghibliJson.length) + 1,
+        title: bodyRequest.title,
+        description: bodyRequest.description
     }
     ghibliJson.push(novoFilme)
-    
+
     response.status(201).send({
         "mensagem": "filmes cadastrado com sucesso",
         novoFilme
     })
 })
 
-app.delete("/ghibli/deletar/:id",(request, response) => {
-    const idRequest = request.params.id
-    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+app.delete("/ghibli/deletar/:id", (request, response) => {
+        const idRequest = request.params.id
+        const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
 
-    //pegar o indice do filme que sera deletado
-    const indice = ghibliJson.indexOf(filmeEncontrado)
-    console.log(indice)
+        //pegar o indice do filme que sera deletado
+        const indice = ghibliJson.indexOf(filmeEncontrado)
+        console.log(indice)
 
-    //ARRAY.splice(INDICE, NUMERO DE ITENS Q VC QUER DELETAR)
-    ghibliJson.splice(indice, 1)
+        //ARRAY.splice(INDICE(onde vou começar a deletar), NUMERO DE ITENS Q VC QUER DELETAR)
+        ghibliJson.splice(indice, 1)
 
-    response.status(200).json([{
-        "mensagem": "filme deletado com sucesso",
-        "filme-deletado": filmeEncontrado,
-        ghibliJson
-    }])
+        response.status(200).json([{
+            "mensagem": "filme deletado com sucesso",
+            "filme-deletado": filmeEncontrado,
+            ghibliJson
+        }])
 
-})
-//metodo PUT que tem a função de substituir o dado
+    })
+    //metodo PUT que tem a função de substituir o dado
 app.put("/ghibli/substituir/:id", (request, response) => {
     //pegar id enviado no path params
     const idRequest = request.params.id
-    //pegar body enviado 
+        //pegar body enviado 
     const bodyRequest = request.body
-    //encontrar o filme com o id enviado no request
+        //encontrar o filme com o id enviado no request
     const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
 
     //pegar o indice(posição no array) do meu filme que vai ser atualizado
@@ -107,7 +105,7 @@ app.put("/ghibli/substituir/:id", (request, response) => {
 })
 
 //metodo PATCH que vai atualizar o titulo de um dado ja existente
-app.patch("/ghibli/updateTitulo/:id", (request, response)=>{
+app.patch("/ghibli/updateTitulo/:id", (request, response) => {
     const idRequest = request.params.id
     const newTitle = request.body.title
 
@@ -125,6 +123,6 @@ app.patch("/ghibli/updateTitulo/:id", (request, response)=>{
 
 
 
-app.listen(3030, ()=>{
+app.listen(6011, () => {
     console.log("alô, pepe moreno? to na porta 3030")
 })
