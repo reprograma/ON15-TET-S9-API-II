@@ -1,6 +1,6 @@
 const app = require("./src/app") //chamando o arquivo app
 
-const PORT = 7070 // porta
+const PORT = 8784 // porta
 
 //inicia o servidor
 app.listen(PORT, ()=>{
