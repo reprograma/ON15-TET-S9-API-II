@@ -1,6 +1,6 @@
-const controller = require("../controllers/filmesController")
+const controller = require("../controllers/seriesController")
 
-const express = require("express") 
+const express = require("express")
 const router = express.Router()
 
 router.get("/catalogo", controller.getAll)
@@ -9,14 +9,22 @@ router.get("/catalogo/:id", controller.getById)
 
 router.get("/pesquisar", controller.getValue)
 
-router.post("/cadastrar", controller.createMovie)
+router.post("/cadastrar", controller.createSerie)
 
 router.patch("/titulo/:id", controller.updateTitle)
 
-router.patch("/alterar/:id", controller.updateMovie)
+router.patch("/alterar/:id", controller.updateSerie)
 
 router.put("/substituir/:id", controller.changeAll)
 
 router.delete("/deletar/:id", controller.deleteAll)
+
+module.exports = router
+
+
+
+
+
+
 
 module.exports = router
