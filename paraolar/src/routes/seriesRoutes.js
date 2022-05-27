@@ -1,7 +1,6 @@
-const controller = require("../controllers/filmesController")
+const controller = require("../controllers/seriesController")
 
-const express = require("express") 
-
+const express = require("express")
 
 const router = express.Router()
 
@@ -11,7 +10,9 @@ router.get("/buscar/:id", controller.getById)
 
 router.get("/filtro", controller.getTitle)
 
-router.post("/cadastrar", controller.createMovie)
+router.get("/genero", controller.getByGenre)
+
+router.post("/cadastrar", controller.createSerie)
 
 router.delete("/deletar/:id", controller.deleteById)
 
