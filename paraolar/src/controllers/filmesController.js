@@ -16,6 +16,7 @@ const getById = async (request, response)=>{
     let filmesJson = await dbConnect()
 
     let idRequest = request.params.id
+    
     let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
 
     response.status(200).send(filmeEncontrado)
@@ -118,11 +119,11 @@ const updateTitle = async (request, response) => {
 const updateYear = async (request, response) => {
     let filmesJson = await dbConnect()
     const idRequest = request.params.id
-    const newGenre = request.body.Genre
+    const newYear = request.body.Year
 
     const filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
 
-    filmeEncontrado.Genre = newGenre
+    filmeEncontrado.Year = newYear
 
     response.status(200).json([{
         "mensagem": "filme atualizado com sucesso",

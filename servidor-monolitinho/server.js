@@ -58,8 +58,60 @@ app.post("/ghibli/cadastrar", (request,response)=>{
     })
 })
 
+app.delete("/ghibli/deletar/:id", (request, response)=>{
+    const idRequest = request.params.id
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+
+    const indice = ghibliJson.indexOf(filmeEncontrado)
+
+    ghibliJson.splice(indice, 1)
+
+    response.status(200). json([{
+        "mensagem": "filme deletado com sucesso",
+        "filme-deletado" : filmeEncontrado,
+        ghibliJson 
+    }])
+})
+
+app.put("/ghibli/substituir/:id", (request, response) => {
+    const idRequest = request.params.id
+    const bodyRequest = request.body
+
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+
+    const indice = ghibliJson.indexOf(filmeEncontrado)
+
+    bodyRequest.id = idRequest
+
+    ghibliJson.splice(indice, 1, bodyRequest)
+
+    response.status(200).json([{
+        "mensagem": "filme atualizado com sucesso",
+        "filme-atualizado": bodyRequest,
+        ghibliJson
+    }])
+})
+
+app.patch("/ghibli/updateTitulo/:id", (request, response) => {
+    const idRequest = request.params.id
+    const bodyRequest = request.body.title
+
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+
+    const indice = ghibliJson.indexOf(filmeEncontrado)
+
+    filmeEncontrado.title = newTitle
+
+    response.status(200).json([{
+        "mensagem": "filme atualizado com sucesso",
+        "filme-atualizado": filmeEncontrado,
+        ghibliJson
+    }])
+})
 
 
-app.listen(3030, ()=>{
-    console.log("alô, pepe moreno? to na porta 3030")
+
+
+app.listen(9091, ()=>{
+    console.log("Meu servidor está rodando na porta 9091")
 })
