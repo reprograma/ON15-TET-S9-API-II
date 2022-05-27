@@ -20,9 +20,9 @@ const getById = async (request, response)=>{
 
     let idRequest = request.params.id //peguei o id enviado na request
     let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
-
-    response.status(200).send(filmeEncontrado)
-}
+    
+        response.status(200).send(filmeEncontrado)
+    }
 
 const createMovie = async(request, response)=>{
     let filmesJson = await dbConnect()
