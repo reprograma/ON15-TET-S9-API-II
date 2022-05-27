@@ -19,3 +19,21 @@ app.use("/series", seriesRoutes)
 
 //exportando pra usar o app no server.js
 module.exports = app
+
+
+const express = require("express")
+const cors = require("cors")
+
+const app2 = express()
+
+
+app.use(express.json())
+app.use(cors())
+
+const filmesRoutes = require("./routes/filmesRoutes.js")
+const seriesRoutes = require("./routes/seriesRoutes.js")
+
+app.use("/filmes", filmesRoutes)
+app.use("/series", seriesRoutes)
+
+module.exports = app2
