@@ -13,28 +13,26 @@ async function dbConnect(){
 const getAll = async (request, response) =>{
     try {
         let filmesJson = await dbConnect()
-        response.status(200).send(filmesJson)
+        response.status(200).json(filmesJson)
     } catch (error) {
-        response.status(404).json({message:error.message})
+        response.status(404).json([{message:error.message}])
     }  
 }
 
 //path params
 //filmes/catalogo/:id
 const getById = async (request, response)=>{
-    try {
-        //conecta no banco de dados
+    try {        
         let filmesJson = await dbConnect()
     
-        let idRequest = request.params.id //peguei o id enviado na request
+        let idRequest = request.params.id
         let filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
-        console.log(filmeEncontrado)
-
+        
         if(filmeEncontrado == undefined) throw new Error("id não encontrado")
 
-        response.status(200).send(filmeEncontrado)
+        response.status(200).json(filmeEncontrado)
     } catch (error) {
-        response.status(404).json({message:error.message})        
+        response.status(500).json([{message:error.message}])         
     }
 }
 

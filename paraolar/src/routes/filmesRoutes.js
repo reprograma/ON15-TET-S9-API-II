@@ -18,8 +18,6 @@ router.put("/substituir/:id", controller.replaceTitle)
 
 router.patch("/updateTitulo/:id", controller.updateTitle)
 
-// router.patch("/update/:id", controller.updateYear)
-
 router.delete("/deletar/:id", controller.deleteTitle)
 
 module.exports = router
