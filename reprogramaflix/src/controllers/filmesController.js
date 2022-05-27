@@ -112,22 +112,6 @@ const createMovie = async (request, response) => {
         }
 
         filmesJson.push(novoFilme)
-
-      
-        // const valores = Object.values(novoFilme)  // selecionar os valores dos objetos
-        
-        // let filmeValido = true  // comparativo do cadastro
-        
-        // valores.forEach(valor => {  // esta pegando os valores do objeto
-        //     if(novoFilme[valor] == null || novoFilme[valor] == undefined){ // se o filme for vazio ou indefinido vai retornar falso
-        //         filmeValido = false 
-        //     }
-        // })
-        
-    
-        // if(!filmeValido) throw new Error("filme não pode ser cadastrado") // não valido
-
-        filmesJson.push(novoFilme)
         
         response.status(201).json({
             "mensagem": "filmes cadastrado com sucesso",
@@ -156,7 +140,7 @@ const replaceById = async(request, response) => {
     
         filmesJson.splice(indice, 1, bodyRequest)
 
-        if(filmeEncontrado == undefined) throw new Error("filme não substituido ")
+        if(filmeEncontrado == undefined) throw new Error("filme não substituído, pois o id não foi enconcreado ")
     
         response.status(200).json([{
             "mensagem": "filme atualizado com sucesso",
@@ -239,7 +223,7 @@ const excluir = async(request, response)=>{
     
         filmesJson.splice(indice, 1)
 
-        if(filmeEncontrado == undefined) throw new Error("filme não excluído, pois não tem esse id")
+        if(filmeEncontrado == undefined) throw new Error("filme não excluído, pois o id não foi enccontrado")
     
         response.status(200).json([{
             "mensagem": "filme deletado com sucesso",
