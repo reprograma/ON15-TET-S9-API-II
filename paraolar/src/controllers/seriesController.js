@@ -73,7 +73,7 @@ const deleteById = async(request, response)=>{
     console.log(indice)
 
 
-    ghibliJson.splice(indice, 1)
+    seriesJson.splice(indice, 1)
 
     response.status(200).json([{
         "mensagem": "Serie deletada com sucesso",
