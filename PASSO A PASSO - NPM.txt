@@ -1,0 +1,14 @@
+1 - Para iniciar NPM: npm init -y (ele cria package.json - ele é o ponto de partida de qualquer projeto node.js )
+
+2 - Para iniciar express: npm install express --> baixa a node_modules e adicona package-lock.json
+
+3 - Baixar os arquivos: npm install
+
+4 - Criar git ignore: touch .gitignore
+    no arquivo .gitignore escrever: node_modules 
+
+5 - Para instalar Nodemon: npm i nodemon 
+    altrar no package.json / start: incluindo nodemon 
+
+6 - Instalar o cors: npm i cors
+
