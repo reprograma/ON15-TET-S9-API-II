@@ -8,8 +8,8 @@ const app = express() //executei o EXPRESS
 app.use(express.json()) //uso o bodyparser
 
 //import da continuação das rotas de filme
-const filmesRoutes = require("./routes/filmesRoutes")
-const seriesRoutes = require("./routes/seriesRoutes")
+const filmesRoutes = require("./routes/filmesRoutes.js")
+const seriesRoutes = require("./routes/seriesRoutes.js")
 
 //criando rota raiz de filmes
 app.use("/filmes", filmesRoutes)

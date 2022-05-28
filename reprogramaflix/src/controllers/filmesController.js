@@ -17,7 +17,7 @@ const getAll = async (request, response) =>{
     } catch (error){
         response.status(500).json({message:error.message})
     }  
-}
+ }
 //path params: id 
 //filmes/catalogo
 const getById = async (request, response)=>{
@@ -61,7 +61,7 @@ const updateTitle = async(request, response)=>{
     try{
         let filmesJson = await dbConnect()
         let idRequest = request.params.id
-        let bodyRequest = resquest.body.Title //novo título
+        let bodyRequest = request.body.Title //novo título
 
         filmeEncontrado = filmesJson.find(filme => filme.id == idRequest)
         
@@ -86,3 +86,4 @@ module.exports = {
     createMovie,
     updateTitle
 }
+

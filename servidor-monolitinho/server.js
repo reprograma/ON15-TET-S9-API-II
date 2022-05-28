@@ -39,6 +39,7 @@ app.get("/ghibli/filtro", (request, response)=>{
         filme => filme.title.toLowerCase().includes(tituloRequest))
 
     response.status(200).send(filmeEncontrado)
+
 })
 
 

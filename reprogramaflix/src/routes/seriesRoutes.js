@@ -1,8 +1,20 @@
+//ROTAS E METODOS DE SERIES
+//chamar o controller de filmes
 const controller = require("../controllers/seriesController")
 
-const express = require("express")
+const express = require("express") //chamando o express
+
+//função de rotas do express
 const router = express.Router()
 
-router.get("/", controller.getAll)
+//router.metodo http(rota, função)
+router.get("/catalogo", controller.getAll)
 
+// router.get("/catalogo/:id", controller.getById)
+
+// router.post("/cadastrar", controller.createMovie)
+
+// router.patch("/updateTitle/:id", controller.updateTitle)
+
+//exportando pra ser usado no app.js
 module.exports = router
