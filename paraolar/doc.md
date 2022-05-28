@@ -9,7 +9,7 @@
 [GET] /filmes?titulo:value
 - retorna um filme pelo nome
 
-[POST]/filmes/criar
+[POST]/filmes/cadastrar
 - cria novo filmes
 
 [DELETE]/filmes/deletar/:id
@@ -21,7 +21,7 @@
 [PATCH]/filmes/updateTitle?id=value
 - atualiza titulo
 
-[PATCH]/filmes/update/:id
+[PATCH]/filmes/updateBody/:id
 - atualiza o que vier no body
 
 [GET] /series/catalogo
@@ -48,5 +48,5 @@
 [PATCH]/series/updateTitle?id=value
 - atualiza titulo
 
-[PATCH]/series/update/:id
+[PATCH]/series/updateBody/:id
 - atualiza o que vier no body

@@ -4,5 +4,5 @@ const PORT = 7070 // porta
 
 //inicia o servidor
 app.listen(PORT, ()=>{
-    console.log(`ALÊ DOÇURA? TO NA PORTA ${PORT}`)
+    console.log(`A porta ${PORT} está funcionando!`)
 })
