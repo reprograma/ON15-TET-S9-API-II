@@ -18,7 +18,7 @@
 [PUT]/filmes/update/:id
 - atualiza um filme por inteiro
 
-[PATCH]/filmes/updateTitle?id=value
+[PATCH]put/filmes/updateTitle?id=value
 - atualiza titulo
 
 [PATCH]/filmes/update/:id
