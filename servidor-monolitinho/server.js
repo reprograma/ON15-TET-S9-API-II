@@ -33,7 +33,7 @@ app.get("/ghibli/buscar/:id", (request, response)=>{
 })
 
 app.get("/ghibli/filtro", (request, response)=>{
-    //recebi o titulo enviado do query params
+    //recebi o titulo enviado no query params
                                             //pra facilitar coloquei tudo minusculo
     let tituloRequest = request.query.titulo.toLowerCase()
 
@@ -93,7 +93,7 @@ app.put("/ghibli/substituir/:id", (request, response) => {
     const indice = ghibliJson.indexOf(filmeEncontrado)
 
     //id enviado no body é o mesmo id enviado no path params 
-    //id enviado no body é o id do filme q vai ser atualidado
+    //id enviado no body é o id do filme que vai ser atualizado
     bodyRequest.id = idRequest
 
     //deleta o filme existente e substitui

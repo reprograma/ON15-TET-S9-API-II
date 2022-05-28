@@ -15,5 +15,7 @@ router.get("/catalogo/:id", controller.getById)
 
 router.post("/cadastrar", controller.createMovie)
 
+router.patch("/updateTitle/:id", controller.updateTitle)
+
 //exportando pra ser usado no app.js
 module.exports = router
