@@ -6,7 +6,7 @@ async function dbConnect(){
 
 //porta 4040
 
-//filmes/catalogo
+//filmes/catalogo - retorna todos os filmes (GET)
 const getAll = async(req, res)=>{  
     try {
         let filmesJson = await dbConnect()
@@ -21,7 +21,7 @@ const getAll = async(req, res)=>{
     }
         
 }
-//filmes/catalogo/:id
+//filmes/catalogo/:id - retorna filme pelo id (GET)
 const getById = async (request, response)=>{
     try {
         let filmesJson = await dbConnect()
@@ -37,7 +37,7 @@ const getById = async (request, response)=>{
         response.status(404).json({message: error.message})       
     }
 }
-//filmes/pesquisar
+//filmes/pesquisar - encontrar filme pelo nome (GET)
 const getValue = async (req, res)=>{
     try {
         let filmesJson = await dbConnect()
@@ -54,7 +54,7 @@ const getValue = async (req, res)=>{
     }
 }
 
-//filmes/cadastrar
+//filmes/cadastrar - criar novo filme (POST)
 const createMovie = async(req, res)=>{
     try {
         let filmesJson = await dbConnect()
@@ -102,7 +102,8 @@ const createMovie = async(req, res)=>{
 
         
 }
-//filmes/titulo/:id
+
+//filmes/titulo/:id - atualizar titulo do filme (PATCH)
 const updateTitle = async(req,res)=>{
     try {
         let filmesJson = await dbConnect()
@@ -129,7 +130,7 @@ const updateTitle = async(req,res)=>{
 
 }
 
-//filmes/alterar/:id
+//filmes/alterar/:id - atualizar o que vier no body (PATCH)
 const updateMovie = async(req, res)=> {
     try {
         let filmesJson = await dbConnect()
@@ -160,7 +161,7 @@ const updateMovie = async(req, res)=> {
 
 }
 
-//filmes/substituir/:id
+//filmes/substituir/:id - atualizar filme todo (PUT)
 const changeAll = async(request, response)=> {
     try {
         const filmesJson = await dbConnect()
@@ -190,7 +191,7 @@ const changeAll = async(request, response)=> {
         
     }
 }
-//filmes/deletar/:id
+//filmes/deletar/:id - deletar filme (DELETE)
 const deleteAll = async(request, response)=> {
     try {
         const filmesJson = await dbConnect()

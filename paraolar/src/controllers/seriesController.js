@@ -4,7 +4,7 @@ async function dbConnect(){
     return await dbConfig.bancoDeDados("series")
 }
 
-//series/catalogo
+//series/catalogo - retornar todas as séries (GET)
 const getAll = async(req, res)=>{
     try {
         let seriesJson = await dbConnect()
@@ -19,7 +19,7 @@ const getAll = async(req, res)=>{
     }
 }
 
-//series/catalogo/:id
+//series/catalogo/:id - retornar série por ID (GET)
 const getById = async (request, response)=>{
     try {
         let seriesJson = await dbConnect()
@@ -35,8 +35,8 @@ const getById = async (request, response)=>{
     }
 }
 
-//series/pesquisar
-const getValue = async (req, res)=>{
+//series/nome - pesquisar série pelo nome (GET)
+const getName = async (req, res)=>{
     try {
         let seriesJson = await dbConnect()
         let tituloRequest = req.query.title.toLowerCase()
@@ -44,14 +44,31 @@ const getValue = async (req, res)=>{
 
         if(serieEncontrada == 0) throw new Error("titulo não encontrado!")
             
-            res.status(200).json(serieEncontrada)
+        res.status(200).json(serieEncontrada)
 
     } catch (error) {
         res.status(404).json({message: error.message})               
     }
 }
 
-//series/cadastrar
+//series/genero - pesquisar série pelo genero (GET)
+const getGenre = async (req, res) => {
+    try {
+        let seriesJson = await dbConnect()
+        let genreRequest = req.query.genre.toLowerCase()
+        let generoEncontrado = seriesJson.filter(serie => serie.genre.join(",").toLowerCase().includes(genreRequest))
+
+        if(generoEncontrado == 0) throw new Error ("Genero não encontrado!")
+
+        res.status(200).json(generoEncontrado)
+
+    } catch (error) {
+        res.status(404).json({message: error.message})
+    }
+}
+
+
+//series/cadastrar - criar nova série (POST)
 const createSerie = async(req, res)=>{
     try {
         let seriesJson = await dbConnect()
@@ -93,7 +110,7 @@ const createSerie = async(req, res)=>{
     }
 }
 
-//series/titulo/:id
+//series/titulo/:id - Atualizar titulo (PATCH)
 const updateTitle = async(req,res)=>{
     try {
         let seriesJson = await dbConnect()
@@ -120,7 +137,7 @@ const updateTitle = async(req,res)=>{
 
 }
 
-//series/alterar/:id
+//series/alterar/:id - atualizar o que vier no body (PATCH)
 const updateSerie = async(req, res)=> {
     try {
         let seriesJson = await dbConnect()
@@ -150,7 +167,7 @@ const updateSerie = async(req, res)=> {
 
 }
 
-//filmes/substituir/:id
+//filmes/substituir/:id - atualizar série por inteiro (PUT)
 const changeAll = async(request, response)=> {
     try {
         const seriesJson = await dbConnect()
@@ -181,7 +198,7 @@ const changeAll = async(request, response)=> {
         
     }
 }
-//filmes/deletar/:id
+//filmes/deletar/:id - deletar série (DELETE)
 const deleteAll = async(request, response)=> {
     try {
         const seriesJson = await dbConnect()
@@ -211,7 +228,8 @@ const deleteAll = async(request, response)=> {
 module.exports = {
     getAll,
     getById,
-    getValue,
+    getName,
+    getGenre,
     createSerie,
     updateTitle,
     updateSerie,

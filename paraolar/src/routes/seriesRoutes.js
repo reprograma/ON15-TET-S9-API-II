@@ -7,7 +7,9 @@ router.get("/catalogo", controller.getAll)
 
 router.get("/catalogo/:id", controller.getById)
 
-router.get("/pesquisar", controller.getValue)
+router.get("/nome", controller.getName)
+
+router.get("/genero", controller.getGenre)
 
 router.post("/cadastrar", controller.createSerie)
 
