@@ -6,6 +6,9 @@
     </p>
 </div>
 
+<div align = "center">
+<img src='./assets/reprogramaflix.jpeg' width = 500 alt = 'logo reprogramaflix'>
+</div>
 <br>
 
 # Introdução
