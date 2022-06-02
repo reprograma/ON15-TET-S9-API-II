@@ -1,0 +1,20 @@
+{
+  "name": "ON15-TET-S9-API-II",
+  "version": "1.0.0",
+  "description": "Turma Online Todas em Tech - Back-end | Semana 9: Introdução à API: DELETE + PUT + PATCH",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elenfrancyne/ON15-TET-S9-API-II.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Elenfrancyne/ON15-TET-S9-API-II/issues"
+  },
+  "homepage": "https://github.com/Elenfrancyne/ON15-TET-S9-API-II#readme"
+}
