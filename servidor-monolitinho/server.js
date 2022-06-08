@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+const ghibliJson = require("./data/ghibli.json");
+=======
 const ghibliJson = require("./data/ghibli.json")
 
 const express = require("express")
@@ -7,31 +10,48 @@ const app = express()
 
 app.use(cors())
 app.use(express.json())//body parser
+>>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
 
 
-app.get("/", (request, response)=>{
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+
+// MENSAGEM INICIAL
+app.get("/", (request, response) => {
     response.status(200).json([
         {
-            "mensagem":"API de filmes Ghibli"
+            "mensagem": "API de filmes Ghibli"
         }
-    ])
-})
+    ]);
+});
 
+// TODOS OS FILMES
+app.get("/ghibli/filmes", (request, response) => {
+    response.status(200).send(ghibliJson);
+});
 
-app.get("/ghibli/filmes", (request, response)=>{
-    response.status(200).send(ghibliJson)
-})
-
-
-
-app.get("/ghibli/buscar/:id", (request, response)=>{
+// BUSCAR FILMES POR ID
+app.get("/ghibli/buscar/:id", (request, response) => {
     let idRequest = request.params.id
-    let filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
+    let filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest);
 
-    response.status(200).send(filmeEncontrado)
+    response.status(200).send(filmeEncontrado);
 
-})
+});
 
+<<<<<<< HEAD
+// BUSCAR FILMES POR TITULO
+app.get("/ghibli/filtro", (request, response) => {
+    let tituloRequest = request.query.titulo.toLowerCase();
+
+    let filmeEncontrado = ghibliJson.filter(filme => filme.title.toLowerCase().includes(tituloRequest));
+=======
 app.get("/ghibli/filtro", (request, response)=>{
     //recebi o titulo enviado do query params
                                             //pra facilitar coloquei tudo minusculo
@@ -41,27 +61,34 @@ app.get("/ghibli/filtro", (request, response)=>{
     //procurando filmes que tenham o titulo PARECIDO com o titulo enviado na request
     let filmeEncontrado = ghibliJson.filter(
         filme => filme.title.toLowerCase().includes(tituloRequest))
+>>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
 
-    response.status(200).send(filmeEncontrado)
-})
+    response.status(200).send(filmeEncontrado);
+});
 
-
-app.post("/ghibli/cadastrar", (request,response)=>{
+// CADASTRAR NOVO FILME
+app.post("/ghibli/cadastrar", (request, response) => {
     let bodyRequest = request.body
 
     let novoFilme = {
-        id: (ghibliJson.length)+1, 
-        title: bodyRequest.title, 
-        description: bodyRequest.description 
+        id: (ghibliJson.length) + 1,
+        title: bodyRequest.title,
+        description: bodyRequest.description
     }
-    ghibliJson.push(novoFilme)
-    
+    ghibliJson.push(novoFilme);
+
     response.status(201).send({
         "mensagem": "filmes cadastrado com sucesso",
         novoFilme
-    })
-})
+    });
+});
 
+<<<<<<< HEAD
+// DELETAR FILME POR ID
+app.delete("/ghibli/deletar/:id", (request, response) => {
+    const idRequest = request.params.id
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest);
+=======
 app.delete("/ghibli/deletar/:id",(request, response) => {
     const idRequest = request.params.id
     const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest)
@@ -123,8 +150,55 @@ app.patch("/ghibli/updateTitulo/:id", (request, response)=>{
 
 })
 
+>>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
 
+    const indice = ghibliJson.indexOf(filmeEncontrado);
+    ghibliJson.splice(indice, 1)
 
-app.listen(3030, ()=>{
-    console.log("alô, pepe moreno? to na porta 3030")
-})
+    response.status(200).json([{
+        "mensagem": "filme deletado com sucesso",
+        "filme-deletado": filmeEncontrado,
+        ghibliJson
+    }]);
+});
+
+// SUBSTITUIR TUDO
+app.put("/ghibli/substituir/:id", (request, response) => {
+    const idRequest = request.params.id
+    const bodyRequest = request.body
+
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest);
+
+    const indice = ghibliJson.indexOf(filmeEncontrado);
+
+    bodyRequest.id = idRequest
+
+    ghibliJson.splice(indice, 1, bodyRequest);
+
+    response.status(200).json([{
+        "mensagem": "filme atualizado com sucesso",
+        "filme-atualizado": bodyRequest,
+        ghibliJson
+    }]);
+});
+
+// ATUALIZAR TÍTULO
+app.patch("/ghibli/updateTitulo/:id", (request, response) => {
+    const idRequest = request.params.id
+    const newTitle = request.body.title
+
+    const filmeEncontrado = ghibliJson.find(filme => filme.id == idRequest);
+
+    filmeEncontrado.title = newTitle
+
+    response.status(200).json([{
+        "mensagem": "titulo atualizado com sucesso",
+        "filme-atualizado": filmeEncontrado,
+        ghibliJson
+    }]);
+});
+
+// LOCALHOST 
+app.listen(3030, () => {
+    console.log("alô, pepe moreno? to na porta 3030");
+});

@@ -1,12 +1,8 @@
 {
-  "name": "reprogramaflix",
+  "name": "paraolar",
   "version": "1.0.0",
   "description": "",
-<<<<<<< HEAD
-  "main": "index.js",
-=======
   "main": "server.js",
->>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -15,10 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-<<<<<<< HEAD
     "cors": "^2.8.5",
-=======
->>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
     "express": "^4.18.1",
     "nodemon": "^2.0.16"
   }

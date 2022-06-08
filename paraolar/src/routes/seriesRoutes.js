@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // IMPORTAR FUNÇÕES CONTROLE - SERIES
 const controller = require("../controllers/seriesController");
 
@@ -34,13 +33,4 @@ router.patch("/updateTitulo/:id", controller.updateTitle);
 router.patch("/updateItens/:id", controller.updateItems);
 
 // EXPORTAR ROTAS
-=======
-const controller = require("../controllers/seriesController")
-
-const express = require("express")
-const router = express.Router()
-
-router.get("/", controller.getAll)
-
->>>>>>> d7fd2eb411423ef73c1141bce9253dee1645f020
 module.exports = router
