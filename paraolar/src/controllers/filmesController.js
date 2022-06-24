@@ -204,7 +204,7 @@ const deleteAll = async(request, response)=> {
 
         if(filmeEncontrado == undefined) throw new Error ("Id não incluso no sistema") 
     
-        response.status(200). json([{
+        response.status(200).json([{
             "mensagem": "filme deletado com sucesso",
             "filme-deletado" : filmeEncontrado,
             filmesJson 
