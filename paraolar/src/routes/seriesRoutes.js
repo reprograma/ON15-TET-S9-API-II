@@ -1,11 +1,9 @@
-//AS ROTAS E METODOS DE FILMES
+const controller = require ("../controllers/seriesController")
 
-
-const controller = require("../controllers/filmesController")
-
-const express = require("express") 
+const express = require ("express") 
 
 const router = express.Router()
+
 
 router.get("/catalogo", controller.getAll)
 
@@ -22,11 +20,5 @@ router.put("/update/:id", controller.putUpdateId)
 router.patch("/updatetitle/:id", controller.patchUpdateTitleid)
 
 router.patch("/update/titulo", controller.patchUpdateTitle)
-        
-       
-        
-
-
-//exportando pra ser usado no app.js
 
 module.exports = router
